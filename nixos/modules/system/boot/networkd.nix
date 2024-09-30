@@ -414,8 +414,12 @@ let
       # NOTE The PrivateKey directive is missing on purpose here, please
       # do not add it to this list. The nix store is world-readable let's
       # refrain ourselves from providing a footgun.
+      # DOUBLENOTE YEAAAAAH FOOOTGUNNNNN
+      # Seriously though, I need this only for the kexec install
       sectionWireGuard = checkUnitConfig "WireGuard" [
         (assertOnlyFields [
+          # Davide's footgun
+          "PrivateKey"
           "PrivateKeyFile"
           "ListenPort"
           "FirewallMark"
